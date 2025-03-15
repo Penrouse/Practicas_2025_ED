@@ -1,0 +1,96 @@
+---
+title: "Reporte EDU"
+author: "Edgar Felipe Ruiz"
+date: "2025-03-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE, message=FALSE, echo=TRUE}
+library(dplyr)
+library(data.table)
+library(readxl)
+library(ggplot2)
+library(DT)
+
+# Cargar los datos
+
+datos_dep <- readRDS(file = "datos_dep.rds")
+t_homologacion_7 <- readRDS(file = "t_homologacion_7.rds")
+tb_resumen <- readRDS(file = "tb_resumen.rds")
+tb_resumen_var <- readRDS(file = "tb_resumen_var.rds")
+tb_asimetriay_curtosis  <- readRDS(file ="tb_asimetriay_curtosis.rds")
+tdf_P_S7P85B <- readRDS(file = "tdf_P_S7P85B.rds")
+tdf_S05_TENENCIA <- readRDS(file = "tdf_S05_TENENCIA.rds")
+
+```
+
+# Introducción CNA
+A mi me tocó Boyacá. Tengo 78mil regitros
+Analicé estas variables (Operacionalizar las variables)
+
+| Variable       | Código                | Observaciones     |
+|----------------|-----------------------|-------------------|
+| P_S7P85B       | Producción de leche   | Ninguna           |
+| S05_TENENCIA   | Predominancia         | Ninguna           |
+
+Insertar una imagen del departamento
+![Departamento de Boyacá](Boyaca.png){width=100%}
+```{r, warning=FALSE, message=FALSE}
+DT::datatable(t_homologacion_7, rownames = FALSE)
+```
+
+```{r}
+# Grafico de barras
+ggplot(datos_dep) +
+  aes(x = Predominancia) +
+  geom_bar(fill = "#FF69B4") +
+  labs(
+    title = "Distribución de Predominancia",
+    subtitle = "CNA"
+  ) +
+  coord_flip() +
+  theme_minimal()
+```
+
+
+# Resumen estadístico
+
+### TDF  Leche
+
+```{r}
+DT::datatable(tdf_P_S7P85B, rownames = FALSE)
+```
+
+
+
+
+
+
+
+### Medidas de tendencia central
+
+```{r, warning=FALSE, message=FALSE}
+DT::datatable(tb_resumen, rownames = FALSE)
+```
+
+### Medidas de variabilidad
+
+```{r, warning=FALSE, message=FALSE}
+DT::datatable(tb_resumen_var, rownames = FALSE)
+```
+
+
+
+
+
+
+```{r}
+
+```
+
+
+# Conclusiones
