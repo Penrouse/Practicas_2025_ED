@@ -195,7 +195,24 @@ tb_asimetriay_curtosis <- data.frame(
 )
 row.names(tb_asimetriay_curtosis) <- NULL
 
-# Exportar resultados
+
+# Exportar resultados -----------------------------------------------------
+
+write.csv(datos_dep, file = "Resultados/datos_dep.csv", row.names = FALSE)
+
+saveRDS(datos_dep, file = "Resultados/datos_dep.rds")
+saveRDS(t_homologacion_7, file = "Resultados/t_homologacion_7.rds")
+
+saveRDS(tb_resumen, file = "Resultados/tb_resumen.rds")
+saveRDS(tb_resumen_var, file = "Resultados/tb_resumen_var.rds")
+saveRDS(tb_asimetriay_curtosis, file = "Resultados/tb_asimetriay_curtosis.rds")
+saveRDS(tdf_P_S7P85B, file = "Resultados/tdf_P_S7P85B.rds")
+saveRDS(tdf_S05_TENENCIA, file = "Resultados/tdf_S05_TENENCIA.rds")
+
+
+
+
+
 
 
 
