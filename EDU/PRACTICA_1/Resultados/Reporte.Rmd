@@ -13,13 +13,16 @@ knitr::opts_chunk$set(echo = TRUE)
 A mi me tocó Boyacá. Tengo 78mil regitros
 Analicé estas variables (Operacionalizar las variables)
 
-| Variable  | Código | Observaciones     |
-|-----------|--------|-------------------|
-| P_S7P85B  | Producción de leche   | Ninguna|
-| S05_TENENCIA   | Predominancia   | Ninguna |
+| Variable       | Código                | Observaciones     |
+|----------------|-----------------------|-------------------|
+| P_S7P85B       | Producción de leche   | Ninguna           |
+| S05_TENENCIA   | Predominancia         | Ninguna           |
 
+Insertar una imagen del departamento
+![Departamento de Boyacá](Boyaca.png){width=100%}
 
 # Resumen estadístico
+
 
 
 # Conclusiones
