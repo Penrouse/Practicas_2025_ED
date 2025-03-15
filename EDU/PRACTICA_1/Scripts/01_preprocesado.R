@@ -113,3 +113,68 @@ tdf_P_S7P85B <- datos_dep %>%
 hist(datos_dep$P_S7P85B)
 mean(datos_dep$P_S7P85B)
 median(datos_dep$P_S7P85B)
+
+
+# Estadisticas descriptivas -----------------------------------------------
+
+# Medidas de tendencia central
+media <- mean(datos_dep$P_S7P85B, na.rm = T)
+mediana <- median(datos_dep$P_S7P85B, na.rm = T)
+# moda: datos discretos o valores agrupados en intervalo
+
+# Medidas de posición
+Q1 <- quantile(
+  datos_dep$P_S7P85B, 
+  na.rm = T, 
+  probs = 0.25, 
+  type = 6)
+Q2 <- quantile(
+  datos_dep$P_S7P85B, 
+  na.rm = T, 
+  probs = 0.50, 
+  type = 6)
+Q3 <- quantile(
+  datos_dep$P_S7P85B, 
+  na.rm = T, 
+  probs = 0.75, 
+  type = 6)
+
+Deciles <- quantile(
+  datos_dep$P_S7P85B, 
+  na.rm = T, 
+  probs = seq(0,1,0.1), 
+  type = 6)
+Deciles
+
+Percentiles <- quantile(
+  datos_dep$P_S7P85B, 
+  na.rm = T, 
+  probs = seq(0,1,0.01), 
+  type = 6)
+Percentiles
+
+# Medidas de variabilidad 
+riq <- Q3 - Q1
+des_abs <- mean(abs(datos_dep$P_S7P85B - media))
+varianza <- mean((datos_dep$P_S7P85B - media)^2)
+# var(datos_dep$P_S7P85B): Esta no se usa porque tenemos una población
+desv_std <- sqrt(varianza)
+recorrido_rel <- rango/media
+recorrido_semi_inter <- (Q3-Q1)/(Q3+Q1)
+CV <- 100*desv_std/abs(media) # Si es mayor del 30%, alta variabilidad
+
+# Tabla de resumen
+tb_resumen <- data.frame(
+  Minimo = min(datos_dep$P_S7P85B, na.rm = T),
+  Q1 = Q1,
+  Media = media,
+  Mediana = mediana,
+  Q2 = Q2,
+  Q3 = Q3,
+  Maximo = max(datos_dep$P_S7P85B, na.rm = T)
+)
+
+# Tabla resumen de medidas de vriabilidad
+
+
+
