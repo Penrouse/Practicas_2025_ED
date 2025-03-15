@@ -1,0 +1,25 @@
+---
+title: "Reporte EDU"
+author: "Edgar Felipe Ruiz"
+date: "2025-03-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introducción CNA
+A mi me tocó Boyacá. Tengo 78mil regitros
+Analicé estas variables (Operacionalizar las variables)
+
+| Variable  | Código | Observaciones     |
+|-----------|--------|-------------------|
+| P_S7P85B  | Producción de leche   | Ninguna|
+| S05_TENENCIA   | Predominancia   | Ninguna |
+
+
+# Resumen estadístico
+
+
+# Conclusiones
