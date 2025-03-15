@@ -174,7 +174,28 @@ tb_resumen <- data.frame(
   Maximo = max(datos_dep$P_S7P85B, na.rm = T)
 )
 
+# Grafico de caja y bigotes
+boxplot(datos_dep$P_S7P85B)
+bp <- boxplot(datos_dep$P_S7P85B)
+
 # Tabla resumen de medidas de vriabilidad
+tb_resumen_var <- data.frame(
+  Varianza = varianza,
+  Des.Estandar = desv_std,
+  Coef.Variación = CV,
+  Rango = rango,
+  Recorrido.Relativo = recorrido_rel,
+  Recorrido.Semi.Intercuartilico = recorrido_semi_inter
+)
+
+# Tabla resumen medidas de simetria y curtosis
+tb_asimetriay_curtosis <- data.frame(
+  Coef.Asimetria_YB = (Q1 + Q3 - 2*Q2)/(Q3 -Q1),
+  Coef.Curtosis = (mean((datos_dep$P_S7P85B-media)^4)/(varianza^2))-3
+)
+row.names(tb_asimetriay_curtosis) <- NULL
+
+# Exportar resultados
 
 
 
