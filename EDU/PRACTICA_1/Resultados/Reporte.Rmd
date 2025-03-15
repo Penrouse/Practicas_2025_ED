@@ -39,17 +39,54 @@ Analicé estas variables (Operacionalizar las variables)
 
 Insertar una imagen del departamento
 ![Departamento de Boyacá](Boyaca.png){width=100%}
-```{r}
+```{r, warning=FALSE, message=FALSE}
 DT::datatable(t_homologacion_7, rownames = FALSE)
+```
+
+```{r}
+# Grafico de barras
+ggplot(datos_dep) +
+  aes(x = Predominancia) +
+  geom_bar(fill = "#FF69B4") +
+  labs(
+    title = "Distribución de Predominancia",
+    subtitle = "CNA"
+  ) +
+  coord_flip() +
+  theme_minimal()
 ```
 
 
 # Resumen estadístico
 
+### TDF  Leche
+
+```{r}
+DT::datatable(tdf_P_S7P85B, rownames = FALSE)
+```
 
 
 
-## Medidas de tendencia central
+
+
+
+
+### Medidas de tendencia central
+
+```{r, warning=FALSE, message=FALSE}
+DT::datatable(tb_resumen, rownames = FALSE)
+```
+
+### Medidas de variabilidad
+
+```{r, warning=FALSE, message=FALSE}
+DT::datatable(tb_resumen_var, rownames = FALSE)
+```
+
+
+
+
+
 
 ```{r}
 
