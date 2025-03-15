@@ -2,7 +2,7 @@
 title: "Informe de R en Markdown R"
 runningheader: "R Markdown" # only for pdf output
 subtitle: "Una implementación con R Markdown" # only for html output
-author: "Pepito Perez"
+author: "Felipe Ruiz"
 date: "`r Sys.Date()`"
 output:
   # tufte::tufte_html: default
