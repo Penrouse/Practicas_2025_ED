@@ -15,6 +15,7 @@ library(data.table)
 library(readxl)
 library(ggplot2)
 library(DT)
+library(leaflet)
 
 # Cargar los datos
 
@@ -84,12 +85,20 @@ DT::datatable(tb_resumen_var, rownames = FALSE)
 ```
 
 
+## Mapa de la producción de leche
 
-
-
+**Total de la producción**
 
 ```{r}
+mapa1 <- readRDS("map.rds")
+mapa1
+```
 
+**Indice de concentración de Gini**
+
+```{r}
+mapa2 <- readRDS("map2.rds")
+mapa2
 ```
 
 
