@@ -46,7 +46,11 @@ datos <- fread("Data/input/S01_15_Unidad_productora_.csv") %>%
          ) %>% 
   na.omit() %>% 
   mutate_at(.vars = c("TIPO_REG","ENCUESTA","COD_VEREDA","PRED_ETNICA","S05_TENENCIA","P_S6P71","P_S6P65"), 
-            .funs = as.character)
+            .funs = as.character) %>% 
+  left_join(tr_6, by = "PRED_ETNICA") %>% 
+  left_join(tr_7, by = "S05_TENENCIA") %>% 
+  left_join(tr_8, by = "P_S6P71") %>% 
+  mutate(P_S6P65_c = ifelse(P_S6P65 == "1", "Si", "No"))
 
 str(datos)
 
@@ -56,4 +60,8 @@ sum(is.na(datos$P_S7P85B))
 
 
 
+# Exportamos --------------------------------------------------------------
+
+saveRDS(datos, "Data/output/datos_dep.rds")
+write.csv(datos, "Data/output/datos_dep.csv")
 
