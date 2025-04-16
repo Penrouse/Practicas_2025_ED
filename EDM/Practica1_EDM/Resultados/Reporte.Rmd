@@ -1,0 +1,36 @@
+---
+title: "Reporte"
+author: "Edgar Felipe Ruiz"
+date: "2025-04-16"
+output: 
+  html_document:
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reporte
+
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(stringr)
+library(knitr)
+library(kableExtra) # editar tablas
+
+datos <- readRDS("datos_dep.rds") %>%
+  mutate(
+    PRED_ETNICA_c = str_wrap(PRED_ETNICA_c, width = 20),
+    S05_TENENCIA_c = str_wrap(S05_TENENCIA_c, width = 20)
+  )
+
+tabla1 <- table(datos$S05_TENENCIA_c, datos$PRED_ETNICA_c) 
+totgen.tabla1<-round(addmargins(tabla1),3)
+knitr::kable(totgen.tabla1, "html", booktabs = TRUE,
+             caption = "Tabla de contingencia S05_TENENCIA vs PRED_ETNICA") %>%
+  kable_styling(latex_options = c("striped","hold_position"))
+
+```
+
+

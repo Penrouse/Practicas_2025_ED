@@ -4,7 +4,7 @@
 library(data.table)
 library(dplyr)
 library(readxl)
-
+library(stringr)
 
 
 # Tablas de homologacion --------------------------------------------------
@@ -50,7 +50,7 @@ datos <- fread("Data/input/S01_15_Unidad_productora_.csv") %>%
   left_join(tr_6, by = "PRED_ETNICA") %>% 
   left_join(tr_7, by = "S05_TENENCIA") %>% 
   left_join(tr_8, by = "P_S6P71") %>% 
-  mutate(P_S6P65_c = ifelse(P_S6P65 == "1", "Si", "No"))
+  mutate(P_S6P65_c = ifelse(P_S6P65 == "1", "Si", "No")) 
 
 str(datos)
 
